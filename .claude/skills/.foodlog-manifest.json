@@ -1,0 +1,18 @@
+{
+  "effort/SKILL.md": "9fb880b7502232ff5f921c46526df6670310a87e54b27c022d49a7cf3e88f916",
+  "foodlog/SKILL.md": "a29c3197a16db2a41fe87a3a6faa2bd67203df330c94cd34732b4eb14aeef814",
+  "foodlog/references/contract.md": "b186f841009d8f049478980354aec5efc8970d8db8454e06dd7ab5f7e6b60f2d",
+  "foodlog/references/evaluation.schema.json": "ad62ad96734c8fac60c3f785daf78a63c89fe066c3e0e02d07a70e57e16d5825",
+  "foodlog/references/example.json": "eaf1cef5f66df87a7051e72f26c8b0dafdda1eeb106d179a8bc30d166d08cd7c",
+  "foodlog/references/rules.md": "ccd95ae1ef8a9c730da62695a43bbd8b58fef534086861f3711bd55f5594088a",
+  "foodlog/scripts/_runtime/foodlog/__init__.py": "32b49f7dceac3de81cdcf08095ca36652b10e2d588f219b17e4c1f3176e996c9",
+  "foodlog/scripts/_runtime/foodlog/grading.py": "5016a1ca43fa1e3ce7c4696d97476b8f33f107608ab70d00ee9c21816ad760f7",
+  "foodlog/scripts/_runtime/foodlog/models.py": "fe33d762ae17dd6082d580c4cb0cba6ab86465a4e919d54d61bda3b385a34454",
+  "foodlog/scripts/_runtime/foodlog/skill_engine.py": "9418784ca32dda95665751b5b9d66ec9e14fe3372057379eb857ea199d461a9d",
+  "foodlog/scripts/evaluate.py": "d76270ca124a10d4fd2e0fd92aa6eae6f59e105fca4ca20dd43fa84bb9f5280c",
+  "foodlog/scripts/evaluate.py.lock": "7be59dc789c4400ad32c6a5f6ba6fcf6d6ad5a7cc1c0b4da716188458ec48470",
+  "happiness/SKILL.md": "7dff7c063168298d2435668fae14292296164d9fffefe7105102599743d533cf",
+  "money/SKILL.md": "25219d0c4694f787e5db33c65a3883e978cbad67a5dd62a6c40411fec8b5a119",
+  "nutrition/SKILL.md": "06e864957edff934bcbc0c7b6444cfbcfe5b73240657fdba4402c92264b10b78",
+  "taste/SKILL.md": "0bfe5860feff0b38b9e893c138ed99de7d2d3418a63fa2507f6e68a3b1320780"
+}

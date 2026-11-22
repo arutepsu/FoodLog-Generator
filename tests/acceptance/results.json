@@ -1,0 +1,1105 @@
+{
+  "date": "2026-11-22",
+  "execution": "Current Codex session judgments; installed helper run with locked uv dependencies",
+  "cases": [
+    {
+      "id": "complete-pasta",
+      "result": {
+        "version": "0.1",
+        "status": "complete",
+        "grade": "1.85",
+        "display_grade": "1.9",
+        "classification": "Good",
+        "weight_points": 40,
+        "turns": [
+          {
+            "id": "meal",
+            "text": "I cooked pasta with salmon at home. Per serving I used 150 g cooked refined-wheat pasta, 150 g salmon, 200 g broccoli and 5 g olive oil, with a small pinch of salt and no added sugar. The consumed ingredients cost exactly EUR 5 per serving. Total food-related time including shopping, preparation, cooking and cleanup was 30 minutes, without overlapping tasks counted twice. Preparation was easy. I absolutely loved the taste. The overall dinner experience was pleasant."
+          }
+        ],
+        "assessments": [
+          {
+            "parameter": "money",
+            "status": "evaluated",
+            "grade": "2",
+            "weight_points": 12,
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "The consumed ingredients cost exactly EUR 5 per serving."
+              }
+            ],
+            "reasoning_summary": "Explicit consumed cost per serving in EUR.",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [],
+            "uncertainties": [],
+            "display_grade": "2.0",
+            "classification": "Good"
+          },
+          {
+            "parameter": "taste",
+            "status": "evaluated",
+            "grade": "1",
+            "weight_points": 8,
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "I absolutely loved the taste."
+              }
+            ],
+            "reasoning_summary": "Explicit strong personal enjoyment.",
+            "strengths": [
+              "Loved the flavor"
+            ],
+            "weaknesses": [],
+            "missing_information": [],
+            "uncertainties": [],
+            "display_grade": "1.0",
+            "classification": "Very Good"
+          },
+          {
+            "parameter": "time",
+            "status": "evaluated",
+            "grade": "3",
+            "weight_points": 4,
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "Total food-related time including shopping, preparation, cooking and cleanup was 30 minutes, without overlapping tasks counted twice."
+              }
+            ],
+            "reasoning_summary": "Explicit total covers relevant activities without double counting.",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [],
+            "uncertainties": [],
+            "display_grade": "3.0",
+            "classification": "OK"
+          },
+          {
+            "parameter": "energy",
+            "status": "evaluated",
+            "grade": "1",
+            "weight_points": 2,
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "Preparation was easy."
+              }
+            ],
+            "reasoning_summary": "User described preparation as easy.",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [],
+            "uncertainties": [],
+            "display_grade": "1.0",
+            "classification": "Very Good"
+          },
+          {
+            "parameter": "nutrition",
+            "status": "evaluated",
+            "grade": "2",
+            "weight_points": 8,
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "Per serving I used 150 g cooked refined-wheat pasta, 150 g salmon, 200 g broccoli and 5 g olive oil, with a small pinch of salt and no added sugar."
+              }
+            ],
+            "reasoning_summary": "Protein, vegetables and a modest oil amount support a generally balanced meal; refined pasta offers less fiber than a wholegrain alternative.",
+            "strengths": [
+              "Protein source and vegetable portion"
+            ],
+            "weaknesses": [
+              "Refined grain rather than wholegrain"
+            ],
+            "missing_information": [],
+            "uncertainties": [
+              "Qualitative assessment; no measured nutrient totals"
+            ],
+            "display_grade": "2.0",
+            "classification": "Good"
+          },
+          {
+            "parameter": "happiness",
+            "status": "evaluated",
+            "grade": "2",
+            "weight_points": 6,
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "The overall dinner experience was pleasant."
+              }
+            ],
+            "reasoning_summary": "Explicit pleasant experience, assessed independently of taste.",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [],
+            "uncertainties": [],
+            "display_grade": "2.0",
+            "classification": "Good"
+          }
+        ],
+        "effort": {
+          "time": {
+            "parameter": "time",
+            "status": "evaluated",
+            "grade": "3",
+            "weight_points": 4,
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "Total food-related time including shopping, preparation, cooking and cleanup was 30 minutes, without overlapping tasks counted twice."
+              }
+            ],
+            "reasoning_summary": "Explicit total covers relevant activities without double counting.",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [],
+            "uncertainties": [],
+            "display_grade": "3.0",
+            "classification": "OK"
+          },
+          "energy": {
+            "parameter": "energy",
+            "status": "evaluated",
+            "grade": "1",
+            "weight_points": 2,
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "Preparation was easy."
+              }
+            ],
+            "reasoning_summary": "User described preparation as easy.",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [],
+            "uncertainties": [],
+            "display_grade": "1.0",
+            "classification": "Very Good"
+          },
+          "parameter": "effort",
+          "weight_points": 6,
+          "status": "evaluated",
+          "grade": "2.333333333333333333333333333",
+          "display_grade": "2.3",
+          "classification": "Good"
+        },
+        "questions": [],
+        "conflicts": [],
+        "safety_warnings": [],
+        "safe_to_recommend": null
+      }
+    },
+    {
+      "id": "missing-ramen",
+      "result": {
+        "version": "0.1",
+        "status": "needs_clarification",
+        "grade": null,
+        "display_grade": null,
+        "classification": null,
+        "weight_points": 40,
+        "turns": [
+          {
+            "id": "meal",
+            "text": "I ate delicious ramen."
+          }
+        ],
+        "assessments": [
+          {
+            "parameter": "money",
+            "status": "missing_information",
+            "grade": null,
+            "weight_points": 12,
+            "evidence": [],
+            "reasoning_summary": "",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [
+              "What was the actual EUR cost per serving, including mandatory fees?"
+            ],
+            "uncertainties": [],
+            "display_grade": null,
+            "classification": null
+          },
+          {
+            "parameter": "taste",
+            "status": "evaluated",
+            "grade": "2",
+            "weight_points": 8,
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "delicious"
+              }
+            ],
+            "reasoning_summary": "Positive personal taste description supports Good, without evidence of exceptional intensity.",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [],
+            "uncertainties": [
+              "Delicious interpreted as Good rather than an explicit absolute favorite"
+            ],
+            "display_grade": "2.0",
+            "classification": "Good"
+          },
+          {
+            "parameter": "time",
+            "status": "missing_information",
+            "grade": null,
+            "weight_points": 4,
+            "evidence": [],
+            "reasoning_summary": "",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [
+              "How many total food-related minutes were required, including relevant travel, waiting and cleanup?"
+            ],
+            "uncertainties": [],
+            "display_grade": null,
+            "classification": null
+          },
+          {
+            "parameter": "energy",
+            "status": "missing_information",
+            "grade": null,
+            "weight_points": 2,
+            "evidence": [],
+            "reasoning_summary": "",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [
+              "How much physical or mental effort did obtaining or preparing the ramen require?"
+            ],
+            "uncertainties": [],
+            "display_grade": null,
+            "classification": null
+          },
+          {
+            "parameter": "nutrition",
+            "status": "missing_information",
+            "grade": null,
+            "weight_points": 8,
+            "evidence": [],
+            "reasoning_summary": "",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [
+              "What ingredients and approximate portions were in the ramen?"
+            ],
+            "uncertainties": [],
+            "display_grade": null,
+            "classification": null
+          },
+          {
+            "parameter": "happiness",
+            "status": "missing_information",
+            "grade": null,
+            "weight_points": 6,
+            "evidence": [],
+            "reasoning_summary": "",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [
+              "Apart from the taste, how did the overall eating experience feel?"
+            ],
+            "uncertainties": [],
+            "display_grade": null,
+            "classification": null
+          }
+        ],
+        "effort": {
+          "time": {
+            "parameter": "time",
+            "status": "missing_information",
+            "grade": null,
+            "weight_points": 4,
+            "evidence": [],
+            "reasoning_summary": "",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [
+              "How many total food-related minutes were required, including relevant travel, waiting and cleanup?"
+            ],
+            "uncertainties": [],
+            "display_grade": null,
+            "classification": null
+          },
+          "energy": {
+            "parameter": "energy",
+            "status": "missing_information",
+            "grade": null,
+            "weight_points": 2,
+            "evidence": [],
+            "reasoning_summary": "",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [
+              "How much physical or mental effort did obtaining or preparing the ramen require?"
+            ],
+            "uncertainties": [],
+            "display_grade": null,
+            "classification": null
+          },
+          "parameter": "effort",
+          "weight_points": 6,
+          "status": "missing_information",
+          "grade": null,
+          "display_grade": null,
+          "classification": null
+        },
+        "questions": [
+          "What was the actual EUR cost per serving, including mandatory fees?",
+          "How many total food-related minutes were required, including relevant travel, waiting and cleanup?",
+          "How much physical or mental effort did obtaining or preparing the ramen require?",
+          "What ingredients and approximate portions were in the ramen?",
+          "Apart from the taste, how did the overall eating experience feel?"
+        ],
+        "conflicts": [],
+        "safety_warnings": [],
+        "safe_to_recommend": null
+      }
+    },
+    {
+      "id": "restaurant",
+      "result": {
+        "version": "0.1",
+        "status": "complete",
+        "grade": "2.8",
+        "display_grade": "2.8",
+        "classification": "OK",
+        "weight_points": 40,
+        "turns": [
+          {
+            "id": "meal",
+            "text": "I ate dinner at a restaurant. My own share was EUR 48 including all mandatory charges, with no optional tip included. Total return travel and waiting took 45 minutes; eating time is excluded. Obtaining the meal was easy. I liked the taste. My plate had 150 g grilled salmon, 150 g cooked refined-wheat pasta and 200 g broccoli, with about 5 g olive oil, a small pinch of salt and no added sugar. The service was excellent and the overall experience was exceptional."
+          }
+        ],
+        "assessments": [
+          {
+            "parameter": "money",
+            "status": "evaluated",
+            "grade": "5",
+            "weight_points": 12,
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "My own share was EUR 48 including all mandatory charges, with no optional tip included."
+              }
+            ],
+            "reasoning_summary": "Explicit own share includes mandatory costs.",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [],
+            "uncertainties": [],
+            "display_grade": "5.0",
+            "classification": "Terrible"
+          },
+          {
+            "parameter": "taste",
+            "status": "evaluated",
+            "grade": "2",
+            "weight_points": 8,
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "I liked the taste."
+              }
+            ],
+            "reasoning_summary": "Explicit liking, independent of price and service.",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [],
+            "uncertainties": [],
+            "display_grade": "2.0",
+            "classification": "Good"
+          },
+          {
+            "parameter": "time",
+            "status": "evaluated",
+            "grade": "3",
+            "weight_points": 4,
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "Total return travel and waiting took 45 minutes; eating time is excluded."
+              }
+            ],
+            "reasoning_summary": "Reported total relevant restaurant effort time.",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [],
+            "uncertainties": [],
+            "display_grade": "3.0",
+            "classification": "OK"
+          },
+          {
+            "parameter": "energy",
+            "status": "evaluated",
+            "grade": "1",
+            "weight_points": 2,
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "Obtaining the meal was easy."
+              }
+            ],
+            "reasoning_summary": "User explicitly reports easy acquisition.",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [],
+            "uncertainties": [],
+            "display_grade": "1.0",
+            "classification": "Very Good"
+          },
+          {
+            "parameter": "nutrition",
+            "status": "evaluated",
+            "grade": "2",
+            "weight_points": 8,
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "My plate had 150 g grilled salmon, 150 g cooked refined-wheat pasta and 200 g broccoli, with about 5 g olive oil, a small pinch of salt and no added sugar."
+              }
+            ],
+            "reasoning_summary": "Protein and vegetables support a mostly balanced plate; refined grain is a fiber limitation.",
+            "strengths": [],
+            "weaknesses": [
+              "Refined grain"
+            ],
+            "missing_information": [],
+            "uncertainties": [
+              "Approximate oil amount; no measured nutrient totals"
+            ],
+            "display_grade": "2.0",
+            "classification": "Good"
+          },
+          {
+            "parameter": "happiness",
+            "status": "evaluated",
+            "grade": "1",
+            "weight_points": 6,
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "The service was excellent and the overall experience was exceptional."
+              }
+            ],
+            "reasoning_summary": "Exceptional overall experience is explicit, not inferred from price.",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [],
+            "uncertainties": [],
+            "display_grade": "1.0",
+            "classification": "Very Good"
+          }
+        ],
+        "effort": {
+          "time": {
+            "parameter": "time",
+            "status": "evaluated",
+            "grade": "3",
+            "weight_points": 4,
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "Total return travel and waiting took 45 minutes; eating time is excluded."
+              }
+            ],
+            "reasoning_summary": "Reported total relevant restaurant effort time.",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [],
+            "uncertainties": [],
+            "display_grade": "3.0",
+            "classification": "OK"
+          },
+          "energy": {
+            "parameter": "energy",
+            "status": "evaluated",
+            "grade": "1",
+            "weight_points": 2,
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "Obtaining the meal was easy."
+              }
+            ],
+            "reasoning_summary": "User explicitly reports easy acquisition.",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [],
+            "uncertainties": [],
+            "display_grade": "1.0",
+            "classification": "Very Good"
+          },
+          "parameter": "effort",
+          "weight_points": 6,
+          "status": "evaluated",
+          "grade": "2.333333333333333333333333333",
+          "display_grade": "2.3",
+          "classification": "Good"
+        },
+        "questions": [],
+        "conflicts": [],
+        "safety_warnings": [],
+        "safe_to_recommend": null
+      }
+    },
+    {
+      "id": "budget",
+      "result": {
+        "version": "0.1",
+        "status": "complete",
+        "grade": "1.45",
+        "display_grade": "1.5",
+        "classification": "Very Good",
+        "weight_points": 40,
+        "turns": [
+          {
+            "id": "meal",
+            "text": "I made a homemade rice dish. The ingredients actually used cost exactly EUR 2 per serving. One serving contained 150 g cooked brown rice, 100 g cooked lentils, 200 g mixed vegetables and 5 g olive oil, with little salt and no added sugar. All food-related tasks including shopping and cleanup took 25 minutes total. It was easy to prepare. I liked the taste. The overall experience was pleasant."
+          }
+        ],
+        "assessments": [
+          {
+            "parameter": "money",
+            "status": "evaluated",
+            "grade": "1",
+            "weight_points": 12,
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "The ingredients actually used cost exactly EUR 2 per serving."
+              }
+            ],
+            "reasoning_summary": "Explicit consumed cost per serving.",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [],
+            "uncertainties": [],
+            "display_grade": "1.0",
+            "classification": "Very Good"
+          },
+          {
+            "parameter": "taste",
+            "status": "evaluated",
+            "grade": "2",
+            "weight_points": 8,
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "I liked the taste."
+              }
+            ],
+            "reasoning_summary": "Explicit liking.",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [],
+            "uncertainties": [],
+            "display_grade": "2.0",
+            "classification": "Good"
+          },
+          {
+            "parameter": "time",
+            "status": "evaluated",
+            "grade": "2",
+            "weight_points": 4,
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "All food-related tasks including shopping and cleanup took 25 minutes total."
+              }
+            ],
+            "reasoning_summary": "Explicit complete total duration.",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [],
+            "uncertainties": [],
+            "display_grade": "2.0",
+            "classification": "Good"
+          },
+          {
+            "parameter": "energy",
+            "status": "evaluated",
+            "grade": "1",
+            "weight_points": 2,
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "It was easy to prepare."
+              }
+            ],
+            "reasoning_summary": "Explicitly easy.",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [],
+            "uncertainties": [],
+            "display_grade": "1.0",
+            "classification": "Very Good"
+          },
+          {
+            "parameter": "nutrition",
+            "status": "evaluated",
+            "grade": "1",
+            "weight_points": 8,
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "One serving contained 150 g cooked brown rice, 100 g cooked lentils, 200 g mixed vegetables and 5 g olive oil, with little salt and no added sugar."
+              }
+            ],
+            "reasoning_summary": "Wholegrain, legumes and vegetables provide a varied, fiber-rich composition and protein source, with modest oil and reported low added salt.",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [],
+            "uncertainties": [
+              "Qualitative balance assessment; no measured nutrient totals"
+            ],
+            "display_grade": "1.0",
+            "classification": "Very Good"
+          },
+          {
+            "parameter": "happiness",
+            "status": "evaluated",
+            "grade": "2",
+            "weight_points": 6,
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "The overall experience was pleasant."
+              }
+            ],
+            "reasoning_summary": "Explicit pleasant overall experience.",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [],
+            "uncertainties": [],
+            "display_grade": "2.0",
+            "classification": "Good"
+          }
+        ],
+        "effort": {
+          "time": {
+            "parameter": "time",
+            "status": "evaluated",
+            "grade": "2",
+            "weight_points": 4,
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "All food-related tasks including shopping and cleanup took 25 minutes total."
+              }
+            ],
+            "reasoning_summary": "Explicit complete total duration.",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [],
+            "uncertainties": [],
+            "display_grade": "2.0",
+            "classification": "Good"
+          },
+          "energy": {
+            "parameter": "energy",
+            "status": "evaluated",
+            "grade": "1",
+            "weight_points": 2,
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "It was easy to prepare."
+              }
+            ],
+            "reasoning_summary": "Explicitly easy.",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [],
+            "uncertainties": [],
+            "display_grade": "1.0",
+            "classification": "Very Good"
+          },
+          "parameter": "effort",
+          "weight_points": 6,
+          "status": "evaluated",
+          "grade": "1.666666666666666666666666667",
+          "display_grade": "1.7",
+          "classification": "Very Good"
+        },
+        "questions": [],
+        "conflicts": [],
+        "safety_warnings": [],
+        "safe_to_recommend": null
+      }
+    },
+    {
+      "id": "contradiction",
+      "result": {
+        "version": "0.1",
+        "status": "needs_clarification",
+        "grade": null,
+        "display_grade": null,
+        "classification": null,
+        "weight_points": 40,
+        "turns": [
+          {
+            "id": "meal",
+            "text": "It was amazing, but I hated the taste."
+          }
+        ],
+        "assessments": [
+          {
+            "parameter": "money",
+            "status": "missing_information",
+            "grade": null,
+            "weight_points": 12,
+            "evidence": [],
+            "reasoning_summary": "",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [
+              "What was the actual EUR cost per serving?"
+            ],
+            "uncertainties": [],
+            "display_grade": null,
+            "classification": null
+          },
+          {
+            "parameter": "taste",
+            "status": "unresolved",
+            "grade": null,
+            "weight_points": 8,
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "It was amazing"
+              },
+              {
+                "source": "meal",
+                "statement": "I hated the taste"
+              }
+            ],
+            "reasoning_summary": "The referent of amazing is unclear. It may describe the overall experience rather than taste; clarification is needed before treating both statements as taste evidence.",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [
+              "Did 'amazing' refer to the flavor or to another part of the experience, and how would you describe the taste overall?"
+            ],
+            "uncertainties": [],
+            "display_grade": null,
+            "classification": null
+          },
+          {
+            "parameter": "time",
+            "status": "missing_information",
+            "grade": null,
+            "weight_points": 4,
+            "evidence": [],
+            "reasoning_summary": "",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [
+              "What was the total relevant food-related time, excluding eating?"
+            ],
+            "uncertainties": [],
+            "display_grade": null,
+            "classification": null
+          },
+          {
+            "parameter": "energy",
+            "status": "missing_information",
+            "grade": null,
+            "weight_points": 2,
+            "evidence": [],
+            "reasoning_summary": "",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [
+              "How physically or mentally difficult was obtaining or preparing the meal?"
+            ],
+            "uncertainties": [],
+            "display_grade": null,
+            "classification": null
+          },
+          {
+            "parameter": "nutrition",
+            "status": "missing_information",
+            "grade": null,
+            "weight_points": 8,
+            "evidence": [],
+            "reasoning_summary": "",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [
+              "What ingredients and approximate portions were involved?"
+            ],
+            "uncertainties": [],
+            "display_grade": null,
+            "classification": null
+          },
+          {
+            "parameter": "happiness",
+            "status": "missing_information",
+            "grade": null,
+            "weight_points": 6,
+            "evidence": [],
+            "reasoning_summary": "",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [
+              "Was amazing describing the overall experience, and what made it feel that way?"
+            ],
+            "uncertainties": [],
+            "display_grade": null,
+            "classification": null
+          }
+        ],
+        "effort": {
+          "time": {
+            "parameter": "time",
+            "status": "missing_information",
+            "grade": null,
+            "weight_points": 4,
+            "evidence": [],
+            "reasoning_summary": "",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [
+              "What was the total relevant food-related time, excluding eating?"
+            ],
+            "uncertainties": [],
+            "display_grade": null,
+            "classification": null
+          },
+          "energy": {
+            "parameter": "energy",
+            "status": "missing_information",
+            "grade": null,
+            "weight_points": 2,
+            "evidence": [],
+            "reasoning_summary": "",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [
+              "How physically or mentally difficult was obtaining or preparing the meal?"
+            ],
+            "uncertainties": [],
+            "display_grade": null,
+            "classification": null
+          },
+          "parameter": "effort",
+          "weight_points": 6,
+          "status": "missing_information",
+          "grade": null,
+          "display_grade": null,
+          "classification": null
+        },
+        "questions": [
+          "What was the actual EUR cost per serving?",
+          "Did 'amazing' refer to the flavor or to another part of the experience, and how would you describe the taste overall?",
+          "What was the total relevant food-related time, excluding eating?",
+          "How physically or mentally difficult was obtaining or preparing the meal?",
+          "What ingredients and approximate portions were involved?",
+          "Was amazing describing the overall experience, and what made it feel that way?"
+        ],
+        "conflicts": [
+          {
+            "parameter": "taste",
+            "question": "Did 'amazing' refer to the flavor or to another part of the experience, and how would you describe the taste overall?",
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "It was amazing"
+              },
+              {
+                "source": "meal",
+                "statement": "I hated the taste"
+              }
+            ]
+          }
+        ],
+        "safety_warnings": [],
+        "safe_to_recommend": null
+      }
+    },
+    {
+      "id": "safety",
+      "result": {
+        "version": "0.1",
+        "status": "needs_clarification",
+        "grade": null,
+        "display_grade": null,
+        "classification": null,
+        "weight_points": 40,
+        "turns": [
+          {
+            "id": "meal",
+            "text": "The chicken was spoiled."
+          }
+        ],
+        "assessments": [
+          {
+            "parameter": "money",
+            "status": "missing_information",
+            "grade": null,
+            "weight_points": 12,
+            "evidence": [],
+            "reasoning_summary": "",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [
+              "What did the evaluated meal cost per serving?"
+            ],
+            "uncertainties": [],
+            "display_grade": null,
+            "classification": null
+          },
+          {
+            "parameter": "taste",
+            "status": "missing_information",
+            "grade": null,
+            "weight_points": 8,
+            "evidence": [],
+            "reasoning_summary": "",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [
+              "Did you try the food, and if so how did it taste?"
+            ],
+            "uncertainties": [],
+            "display_grade": null,
+            "classification": null
+          },
+          {
+            "parameter": "time",
+            "status": "missing_information",
+            "grade": null,
+            "weight_points": 4,
+            "evidence": [],
+            "reasoning_summary": "",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [
+              "What total food-related time was involved?"
+            ],
+            "uncertainties": [],
+            "display_grade": null,
+            "classification": null
+          },
+          {
+            "parameter": "energy",
+            "status": "missing_information",
+            "grade": null,
+            "weight_points": 2,
+            "evidence": [],
+            "reasoning_summary": "",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [
+              "How difficult was obtaining or preparing the food?"
+            ],
+            "uncertainties": [],
+            "display_grade": null,
+            "classification": null
+          },
+          {
+            "parameter": "nutrition",
+            "status": "missing_information",
+            "grade": null,
+            "weight_points": 8,
+            "evidence": [],
+            "reasoning_summary": "",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [
+              "What ingredients and approximate portions were involved?"
+            ],
+            "uncertainties": [],
+            "display_grade": null,
+            "classification": null
+          },
+          {
+            "parameter": "happiness",
+            "status": "missing_information",
+            "grade": null,
+            "weight_points": 6,
+            "evidence": [],
+            "reasoning_summary": "",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [
+              "How did the overall experience feel?"
+            ],
+            "uncertainties": [],
+            "display_grade": null,
+            "classification": null
+          }
+        ],
+        "effort": {
+          "time": {
+            "parameter": "time",
+            "status": "missing_information",
+            "grade": null,
+            "weight_points": 4,
+            "evidence": [],
+            "reasoning_summary": "",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [
+              "What total food-related time was involved?"
+            ],
+            "uncertainties": [],
+            "display_grade": null,
+            "classification": null
+          },
+          "energy": {
+            "parameter": "energy",
+            "status": "missing_information",
+            "grade": null,
+            "weight_points": 2,
+            "evidence": [],
+            "reasoning_summary": "",
+            "strengths": [],
+            "weaknesses": [],
+            "missing_information": [
+              "How difficult was obtaining or preparing the food?"
+            ],
+            "uncertainties": [],
+            "display_grade": null,
+            "classification": null
+          },
+          "parameter": "effort",
+          "weight_points": 6,
+          "status": "missing_information",
+          "grade": null,
+          "display_grade": null,
+          "classification": null
+        },
+        "questions": [
+          "What did the evaluated meal cost per serving?",
+          "Did you try the food, and if so how did it taste?",
+          "What total food-related time was involved?",
+          "How difficult was obtaining or preparing the food?",
+          "What ingredients and approximate portions were involved?",
+          "How did the overall experience feel?"
+        ],
+        "conflicts": [],
+        "safety_warnings": [
+          {
+            "message": "Critical food-safety warning: do not eat the spoiled chicken. A favorable score would not make it safe.",
+            "evidence": [
+              {
+                "source": "meal",
+                "statement": "The chicken was spoiled."
+              }
+            ]
+          }
+        ],
+        "safe_to_recommend": false
+      }
+    }
+  ]
+}

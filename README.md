@@ -1,6 +1,6 @@
 # FoodLog Generator
 
-FoodLog Generator is an AI-powered application designed to turn everyday meal descriptions into clear, explainable food evaluations. It considers the whole experience of obtaining, preparing, and eating food through five dimensions: **Money, Taste, Effort, Nutrition, and Happiness**.
+FoodLog Generator is a portable collection of Agent Skills for OpenAI Codex and Claude Code, designed to turn everyday meal descriptions into clear, explainable food evaluations. It considers the whole experience of obtaining, preparing, and eating food through five dimensions: **Money, Taste, Effort, Nutrition, and Happiness**.
 
 The product is designed for home-cooked meals, restaurants, cafeterias, street food, takeaway, delivery, and snacks. Its purpose is to help you understand what made a meal worthwhile and where its tradeoffs were.
 
@@ -102,17 +102,104 @@ AI interprets natural language, subjective experiences, and qualitative evidence
 
 Every assessment is designed to include its status, grade, classification, weight, supporting evidence, explanation, strengths, weaknesses, missing information, and uncertainties.
 
-## Current availability
+## Install and use FoodLog
 
-This repository currently provides the deterministic grading foundation, validated data models, and automated tests. The natural-language workflow described above is the product design; the five AI evaluators, Coordinator, and interactive command-line experience are not yet available.
+FoodLog runs inside **OpenAI Codex or Claude Code**, using the host's own model to interpret your meal description. The existing Python package supplies the deterministic grading engine.
 
-## Run the existing checks
+Install [uv](https://docs.astral.sh/uv/) and Python 3.12 or newer. From this repository, run these commands on Windows, macOS, or Linux:
 
-The project uses **Python 3.12+** and **uv**. From the project directory, run:
-
-```powershell
+```text
 uv sync --locked
-uv run pytest
+uv run python skills/sync.py
 ```
 
-The existing tests run without an LLM API key. Dependencies are pinned in `uv.lock`.
+The synchronization command creates the six discoverable skills in both `.agents/skills/` and `.claude/skills/`. Start a new host session in this project, or reload skills if your host supports it.
+
+- **Codex:** invoke `$foodlog`, followed by your meal description.
+- **Claude Code:** invoke `/foodlog`, followed by your meal description.
+- You can also ask the host to evaluate a meal with FoodLog in ordinary language.
+
+For example:
+
+```text
+$foodlog I cooked chicken and rice for 5 euros.
+It took 30 minutes, and I loved the taste.
+```
+
+FoodLog asks whether the price was per serving, what the total relevant time covered, how difficult preparation felt, what ingredients and approximate portions were involved, and how the overall experience felt wherever those details remain unclear. Reply in the same conversation; earlier answers remain part of the evaluation.
+
+To install project-local skills into another workspace, run this from the package repository:
+
+```text
+uv run python skills/sync.py --destination "/path/to/another/project"
+```
+
+Use a Windows path such as `C:\My Project` on Windows. Install all six skills together: specialist skills share references with the coordinating skill. Each generated installation includes the Python runtime and the helper's dependency lock, so it can run without the original repository. The first helper invocation may need network access to download its locked Python dependencies. No separate LLM API key is required.
+
+## Package structure
+
+```text
+skills/
+  foodlog/
+    SKILL.md
+    references/        Shared rules, contract, schema and example
+    scripts/           Deterministic JSON helper and its uv lock
+  money/SKILL.md
+  taste/SKILL.md
+  effort/SKILL.md
+  nutrition/SKILL.md
+  happiness/SKILL.md
+  sync.py              Cross-platform discovery synchronization
+  export_schema.py     Schema generation from the Python model
+src/foodlog/           Preserved Python package and shared grading engine
+tests/                Automated scoring, contract and installation tests
+.agents/skills/        Generated Codex discovery copies
+.claude/skills/        Generated Claude Code discovery copies
+```
+
+Edit canonical skill instructions under `skills/` and grading logic under `src/foodlog/`. Run synchronization after changes; generated host copies are not independently maintained. The installer refuses to overwrite local edits or colliding skills and does not remove unrelated files.
+
+## How the skills execute
+
+The coordinating skill applies the five specialist roles within the host session. Subagents are optional, not required. It records the user's messages, collects traceable evidence and builds a structured assessment. Its Python helper checks the structure and exact evidence references, derives numeric grades, and computes the weighted result.
+
+The host model remains responsible for deciding whether evidence supports an interpretation and for identifying semantic contradictions. Structural validation cannot prove those judgments. Contradictions recorded in the input block a final grade until clarified. Food-safety warnings remain visible independently of the arithmetic.
+
+The helper accepts JSON and returns JSON; it is a tool for the host, not a separate conversational application. Decimal values are serialized as strings to retain precision. Its JSON output is encoding-independent, including for Unicode meal descriptions.
+
+You can run the complete example directly:
+
+```text
+uv run --locked skills/foodlog/scripts/evaluate.py skills/foodlog/references/example.json
+```
+
+It returns **2.0 — Good** from six supported component assessments. To inspect the input contract:
+
+```text
+uv run --locked skills/foodlog/scripts/evaluate.py --schema
+```
+
+## Verification and maintenance
+
+```text
+uv run python -m pytest
+uv run python skills/export_schema.py --check
+uv run python skills/sync.py --check
+```
+
+Dependencies for the preserved Python package are pinned in `uv.lock`. The helper has a separate inline-script lock at `skills/foodlog/scripts/evaluate.py.lock`. The existing package configuration and grading tests are preserved.
+
+After changing an input model, regenerate the schema and synchronize:
+
+```text
+uv run python skills/export_schema.py
+uv run python skills/sync.py
+```
+
+If uv cannot use its default cache directory, add `--cache-dir .uv-cache` immediately after `uv`.
+
+Scoring, schema validation, failure handling, evidence references, follow-up inputs, installation drift and both discovery folder layouts are covered by offline tests. A host-model behavioral check also exercises an ambiguous meal description and verifies clarification rather than an invented overall grade. The repository does not automate launching or testing an installed Claude Code session.
+
+Host conventions: [Codex skills](https://developers.openai.com/codex/skills/) and [Claude Code skills](https://code.claude.com/docs/en/skills).
+
+Acceptance examples and execution limits are recorded in [the v0.1 acceptance report](tests/acceptance/REPORT.md). The six scenario inputs and recorded outputs are included for reproducible checks. Live Claude model comparison remains pending.

@@ -1,0 +1,102 @@
+{
+  "turns": [
+    {
+      "id": "money",
+      "text": "The meal cost 5 euros per serving."
+    },
+    {
+      "id": "taste",
+      "text": "I absolutely loved the taste."
+    },
+    {
+      "id": "time",
+      "text": "Total food related time including cleanup was 30 minutes."
+    },
+    {
+      "id": "energy",
+      "text": "Preparing it was easy."
+    },
+    {
+      "id": "nutrition",
+      "text": "150 g salmon, 150 g cooked wholegrain pasta, 200 g broccoli, 5 g olive oil."
+    },
+    {
+      "id": "happiness",
+      "text": "It was an ordinary neutral experience."
+    }
+  ],
+  "assessments": [
+    {
+      "parameter": "money",
+      "status": "evaluated",
+      "evidence": [
+        {
+          "source": "money",
+          "statement": "The meal cost 5 euros per serving."
+        }
+      ],
+      "reasoning_summary": "Assessment based on the quoted user report.",
+      "lower": "5"
+    },
+    {
+      "parameter": "taste",
+      "status": "evaluated",
+      "evidence": [
+        {
+          "source": "taste",
+          "statement": "I absolutely loved the taste."
+        }
+      ],
+      "reasoning_summary": "Assessment based on the quoted user report.",
+      "grade": 1
+    },
+    {
+      "parameter": "time",
+      "status": "evaluated",
+      "evidence": [
+        {
+          "source": "time",
+          "statement": "Total food related time including cleanup was 30 minutes."
+        }
+      ],
+      "reasoning_summary": "Assessment based on the quoted user report.",
+      "lower": "30"
+    },
+    {
+      "parameter": "energy",
+      "status": "evaluated",
+      "evidence": [
+        {
+          "source": "energy",
+          "statement": "Preparing it was easy."
+        }
+      ],
+      "reasoning_summary": "Assessment based on the quoted user report.",
+      "grade": 1
+    },
+    {
+      "parameter": "nutrition",
+      "status": "evaluated",
+      "evidence": [
+        {
+          "source": "nutrition",
+          "statement": "150 g salmon, 150 g cooked wholegrain pasta, 200 g broccoli, 5 g olive oil."
+        }
+      ],
+      "reasoning_summary": "Assessment based on the quoted user report.",
+      "grade": 2
+    },
+    {
+      "parameter": "happiness",
+      "status": "evaluated",
+      "evidence": [
+        {
+          "source": "happiness",
+          "statement": "It was an ordinary neutral experience."
+        }
+      ],
+      "reasoning_summary": "Assessment based on the quoted user report.",
+      "grade": 3
+    }
+  ]
+}

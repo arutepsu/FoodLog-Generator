@@ -1,0 +1,92 @@
+{
+  "turns": [
+    {
+      "id": "meal",
+      "text": "I ate delicious ramen."
+    },
+    {
+      "id": "followup",
+      "text": "It cost EUR 9 per serving including mandatory fees. Total food-related time was 10 minutes including cleanup; no shopping or travel was needed. Preparation was easy. Per serving there were 150 g cooked noodles, 100 g chicken, 200 g pakchoi, 300 ml lightly salted broth and 5 g sesame oil, with no added sugar. The overall meal experience was pleasant."
+    }
+  ],
+  "assessments": [
+    {
+      "parameter": "money",
+      "status": "evaluated",
+      "evidence": [
+        {
+          "source": "followup",
+          "statement": "It cost EUR 9 per serving including mandatory fees."
+        }
+      ],
+      "reasoning_summary": "Explicit own per-serving cost including mandatory fees.",
+      "lower": "9"
+    },
+    {
+      "parameter": "taste",
+      "status": "evaluated",
+      "evidence": [
+        {
+          "source": "meal",
+          "statement": "delicious"
+        }
+      ],
+      "reasoning_summary": "Positive personal taste description supports Good, without evidence of exceptional intensity.",
+      "uncertainties": [
+        "Delicious interpreted as Good rather than an explicit absolute favorite"
+      ],
+      "grade": 2
+    },
+    {
+      "parameter": "time",
+      "status": "evaluated",
+      "evidence": [
+        {
+          "source": "followup",
+          "statement": "Total food-related time was 10 minutes including cleanup; no shopping or travel was needed."
+        }
+      ],
+      "reasoning_summary": "Explicit total duration and relevant scope.",
+      "lower": "10"
+    },
+    {
+      "parameter": "energy",
+      "status": "evaluated",
+      "evidence": [
+        {
+          "source": "followup",
+          "statement": "Preparation was easy."
+        }
+      ],
+      "reasoning_summary": "Explicit ease of preparation.",
+      "grade": 1
+    },
+    {
+      "parameter": "nutrition",
+      "status": "evaluated",
+      "evidence": [
+        {
+          "source": "followup",
+          "statement": "Per serving there were 150 g cooked noodles, 100 g chicken, 200 g pakchoi, 300 ml lightly salted broth and 5 g sesame oil, with no added sugar."
+        }
+      ],
+      "reasoning_summary": "Reported protein, vegetables and modest oil support a mostly balanced composition; refined noodles and unmeasured broth sodium limit precision.",
+      "grade": 2,
+      "uncertainties": [
+        "No measured nutrient totals; broth sodium is not quantified."
+      ]
+    },
+    {
+      "parameter": "happiness",
+      "status": "evaluated",
+      "evidence": [
+        {
+          "source": "followup",
+          "statement": "The overall meal experience was pleasant."
+        }
+      ],
+      "reasoning_summary": "Explicit overall experience independent of taste.",
+      "grade": 2
+    }
+  ]
+}

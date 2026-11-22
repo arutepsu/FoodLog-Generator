@@ -1,0 +1,278 @@
+{
+  "$defs": {
+    "Conflict": {
+      "additionalProperties": false,
+      "properties": {
+        "parameter": {
+          "enum": [
+            "money",
+            "taste",
+            "time",
+            "energy",
+            "nutrition",
+            "happiness"
+          ],
+          "title": "Parameter",
+          "type": "string"
+        },
+        "question": {
+          "minLength": 1,
+          "title": "Question",
+          "type": "string"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/Evidence"
+          },
+          "minItems": 2,
+          "title": "Evidence",
+          "type": "array"
+        }
+      },
+      "required": [
+        "parameter",
+        "question",
+        "evidence"
+      ],
+      "title": "Conflict",
+      "type": "object"
+    },
+    "DraftAssessment": {
+      "additionalProperties": false,
+      "properties": {
+        "parameter": {
+          "enum": [
+            "money",
+            "taste",
+            "time",
+            "energy",
+            "nutrition",
+            "happiness"
+          ],
+          "title": "Parameter",
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "evaluated",
+            "missing_information",
+            "unresolved",
+            "error"
+          ],
+          "title": "Status",
+          "type": "string"
+        },
+        "grade": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Grade"
+        },
+        "lower": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Lower"
+        },
+        "upper": {
+          "anyOf": [
+            {
+              "type": "number"
+            },
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ],
+          "default": null,
+          "title": "Upper"
+        },
+        "currency": {
+          "const": "EUR",
+          "default": "EUR",
+          "title": "Currency",
+          "type": "string"
+        },
+        "evidence": {
+          "default": [],
+          "items": {
+            "$ref": "#/$defs/Evidence"
+          },
+          "title": "Evidence",
+          "type": "array"
+        },
+        "reasoning_summary": {
+          "default": "",
+          "title": "Reasoning Summary",
+          "type": "string"
+        },
+        "strengths": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Strengths",
+          "type": "array"
+        },
+        "weaknesses": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Weaknesses",
+          "type": "array"
+        },
+        "missing_information": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Missing Information",
+          "type": "array"
+        },
+        "uncertainties": {
+          "default": [],
+          "items": {
+            "type": "string"
+          },
+          "title": "Uncertainties",
+          "type": "array"
+        }
+      },
+      "required": [
+        "parameter",
+        "status"
+      ],
+      "title": "DraftAssessment",
+      "type": "object"
+    },
+    "Evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "source": {
+          "minLength": 1,
+          "title": "Source",
+          "type": "string"
+        },
+        "statement": {
+          "minLength": 1,
+          "title": "Statement",
+          "type": "string"
+        }
+      },
+      "required": [
+        "source",
+        "statement"
+      ],
+      "title": "Evidence",
+      "type": "object"
+    },
+    "SafetyWarning": {
+      "additionalProperties": false,
+      "properties": {
+        "message": {
+          "minLength": 1,
+          "title": "Message",
+          "type": "string"
+        },
+        "evidence": {
+          "items": {
+            "$ref": "#/$defs/Evidence"
+          },
+          "minItems": 1,
+          "title": "Evidence",
+          "type": "array"
+        }
+      },
+      "required": [
+        "message",
+        "evidence"
+      ],
+      "title": "SafetyWarning",
+      "type": "object"
+    },
+    "Turn": {
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "minLength": 1,
+          "title": "Id",
+          "type": "string"
+        },
+        "text": {
+          "minLength": 1,
+          "title": "Text",
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "text"
+      ],
+      "title": "Turn",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "turns": {
+      "items": {
+        "$ref": "#/$defs/Turn"
+      },
+      "minItems": 1,
+      "title": "Turns",
+      "type": "array"
+    },
+    "assessments": {
+      "items": {
+        "$ref": "#/$defs/DraftAssessment"
+      },
+      "maxItems": 6,
+      "minItems": 6,
+      "title": "Assessments",
+      "type": "array"
+    },
+    "conflicts": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/Conflict"
+      },
+      "title": "Conflicts",
+      "type": "array"
+    },
+    "safety_warnings": {
+      "default": [],
+      "items": {
+        "$ref": "#/$defs/SafetyWarning"
+      },
+      "title": "Safety Warnings",
+      "type": "array"
+    }
+  },
+  "required": [
+    "turns",
+    "assessments"
+  ],
+  "title": "EvaluationInput",
+  "type": "object"
+}
