@@ -35,3 +35,24 @@ The automated suite exercises this example.
 
 The automated suite covers structured follow-up, conflicts, warnings and malformed input.
 These records describe host-context checks, not an automated launch of both desktop products.
+
+## v0.2 reporting-only workflow
+
+Request: produce the Coordinator Report from reports/FL-V02-PASTA/evaluation.json,
+without re-evaluating and without saving another copy.
+
+Observed in an independent host-context check: the report helper returned the saved
+1.9 Good (raw 1.85), exact calculation, component grades, evidence and fixed-weight
+text fallback. No evaluator, external LLM/API or export was used; files was null.
+Raw SVG markup was omitted from the user-facing fallback. The Coordinator entrypoint
+now explicitly routes existing-result report requests past the evaluation steps.
+
+## Regression: ordinary love and visible chart
+
+Reported failure: "I loved the taste" was rated 1.0 and the standard report
+was reduced to prose with no chart. Expected: interpret ordinary love near 1.7;
+reserve 1.0 for clearly exceptional enjoyment. Revalidate all saved results before
+reporting. Use --preview-dir and embed the returned absolute PNG path, preserving
+the example-report sections and full evaluator reports. Never invent a chart or
+pass off SVG source as a rendered image. Existing perfect scores based on
+"absolutely loved" remain valid and must not change during report-only regeneration.

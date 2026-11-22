@@ -3,7 +3,7 @@ name = "foodlog-generator"
 version = "0.1.0"
 description = "Explainable food experience grading"
 requires-python = ">=3.12"
-dependencies = ["pydantic>=2.10,<3"]
+dependencies = ["pydantic>=2.10,<3", "resvg-py>=0.2,<1"]
 
 [dependency-groups]
 dev = ["pytest>=8,<10"]

@@ -21,7 +21,7 @@ supports the claim, numeric amount and interpretation. Syntax checks cannot esta
 Evaluated drafts require evidence and reasoning_summary, and cannot have missing_information.
 For Money and Time, omit grade; supply lower as a decimal string in EUR/serving or minutes.
 For an exact number, omit upper. For a range, supply both; the helper grades both endpoints.
-For qualitative components, supply grade as 1,2,3,4,5 and omit lower/upper.
+For Taste, supply grade from 1.0 to 5.0 with at most one decimal place. Other qualitative components use 1,2,3,4,5. Omit lower/upper for all qualitative components.
 Weights, classifications and displayed grades are output-only and must not be supplied.
 Only EUR is accepted; convert with verified provenance before sending a Money value.
 

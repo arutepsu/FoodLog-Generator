@@ -4,7 +4,7 @@ from typing import Literal
 
 from pydantic import ConfigDict, Field, field_validator, model_validator
 
-from foodlog.grading import WEIGHTS, classify, display_grade, grade_money, grade_time, nonnegative, overall_grade
+from foodlog.grading import WEIGHTS, classify, display_grade, grade_money, grade_time, nonnegative, overall_grade, validated_component_grade
 from foodlog.models import Assessment, Contract, EffortAssessment, Evidence
 
 Component = Literal["money", "taste", "time", "energy", "nutrition", "happiness"]
@@ -51,8 +51,8 @@ class DraftAssessment(Contract):
                 raise ValueError("Evaluated assessments require evidence, reasoning and no required missing facts")
             if numeric and self.lower is None:
                 raise ValueError("Evaluated numeric assessments require a value")
-            if not numeric and self.grade not in tuple(Decimal(i) for i in range(1, 6)):
-                raise ValueError("Qualitative grades must be representative integers 1 through 5")
+            if not numeric:
+                validated_component_grade(self.parameter, self.grade)
         else:
             if self.grade is not None or self.lower is not None or self.upper is not None:
                 raise ValueError("Unresolved assessments cannot carry numeric assessments")
@@ -124,6 +124,15 @@ def evaluate(payload: dict | EvaluationInput) -> dict:
     status = "error" if any(x.status == "error" for x in results.values()) else ("complete" if raw is not None else "needs_clarification")
     return {
         "version": "0.1",
+        "measurements": {
+            item.parameter: {
+                "lower": str(item.lower),
+                "upper": None if item.upper is None else str(item.upper),
+                "unit": "EUR per serving" if item.parameter == "money" else "minutes",
+            }
+            for item in draft.assessments
+            if item.parameter in ("money", "time") and item.lower is not None
+        },
         "status": status,
         "grade": None if raw is None else str(raw),
         "display_grade": None if raw is None else str(display_grade(raw)),

@@ -23,14 +23,14 @@ Time in minutes: [0,15) => 1; [15,30) => 2; [30,120) => 3; [120,240] => 4; above
 Negative/nonfinite values and boolean pseudo-numbers are invalid. Zero price and time are valid.
 A numeric range must have both endpoints in the same category to receive a grade.
 
-Taste: adores 1; likes 2; neutral 3; disappointing 4; never again 5.
+Taste: ordinary "loved it" about 1.7; really/absolutely loved or exceptional enjoyment 1.0; likes 2; neutral 3; disappointing 4; never again 5. Use context and the taste skill calibration.
 Energy: easy 1; some effort but simple 2; moderate 3; complicated 4; significantly difficult 5.
 Nutrition: highly balanced 1; mostly healthy 2; mixed 3; poor balance 4; extremely poor 5.
 Happiness: exceptional 1; pleasant 2; neutral 3; unpleasant 4; extremely negative 5.
 
 Preserve raw Decimal precision. Display ROUND_HALF_UP to one decimal, then classify:
 1.0–1.7 Very Good; 1.8–2.5 Good; 2.6–3.3 OK; 3.4–4.0 Bad; 4.1–5.0 Terrible.
-Qualitative grades use only 1,2,3,4,5. Weighted results can be intermediate.
+Taste supports grades from 1.0 to 5.0 in steps of 0.1. Other qualitative grades use only 1,2,3,4,5. Weighted results can be intermediate.
 
 Evidence must be exact quotations traceable to user turns. Do not invent prices, durations,
 ingredients, portions, preferences, experiences, nutrient totals or exchange rates.

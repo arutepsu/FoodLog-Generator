@@ -95,3 +95,14 @@ def ingredient_cost(purchase_eur, used_quantity, purchased_quantity) -> Decimal:
     if purchased <= 0 or used > purchased:
         raise ValueError("Purchased quantity must be positive and at least the used quantity")
     return price * used / purchased
+
+
+def validated_component_grade(parameter, value):
+    """Taste supports tenths; other component scales retain their fixed anchors."""
+    grade = validated_grade(value)
+    if parameter == "taste":
+        if grade != grade.quantize(Decimal("0.1")):
+            raise ValueError("Taste grades must use at most one decimal place")
+    elif grade not in tuple(Decimal(i) for i in range(1, 6)):
+        raise ValueError("Component grades must use representative integers 1 through 5")
+    return grade

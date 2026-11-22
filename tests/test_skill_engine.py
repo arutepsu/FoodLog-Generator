@@ -78,7 +78,7 @@ def test_invalid_host_output_is_rejected(mutation):
     if mutation == "fake_source": data["assessments"][0]["evidence"][0]["source"] = "unknown"
     if mutation == "duplicate": data["assessments"][1] = deepcopy(data["assessments"][0])
     if mutation == "absent": data["assessments"].pop()
-    if mutation == "fractional_qualitative": data["assessments"][1]["grade"] = "1.5"
+    if mutation == "fractional_qualitative": data["assessments"][3]["grade"] = "1.5"
     if mutation == "invented_numeric_grade": data["assessments"][0]["grade"] = 1
     if mutation == "negative": data["assessments"][0]["lower"] = "-1"
     if mutation == "reversed": data["assessments"][0].update(lower="8",upper="6")

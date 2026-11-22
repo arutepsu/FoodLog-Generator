@@ -42,7 +42,7 @@ Estimates are marked as uncertain. A price range spanning different grades needs
 
 ### Taste
 
-Taste reflects your own experience, from adoring a dish (**1.0**) to never wanting to eat it again (**5.0**). Liking it corresponds to **2.0**, feeling neutral to **3.0**, and finding it disappointing to **4.0**. Your description is interpreted in context rather than through rigid keyword matching.
+Taste reflects your own experience, from clearly exceptional enjoyment (**1.0**) to never wanting to eat it again (**5.0**). Ordinary “I loved it” is calibrated around **1.7**; “I really/absolutely loved it” can support **1.0**. Taste allows one-decimal grades, interpreted in context. Liking it corresponds to **2.0**, feeling neutral to **3.0**, and finding it disappointing to **4.0**. Your description is interpreted in context rather than through rigid keyword matching.
 
 ### Effort
 
@@ -84,7 +84,7 @@ Grades follow a German-style scale: **1.0 is best and 5.0 is worst**.
 | 3.4–4.0 | Bad |
 | 4.1–5.0 | Terrible |
 
-**OK is a neutral result.** Qualitative assessments use representative grades of 1.0, 2.0, 3.0, 4.0, or 5.0; the weighted result can fall between them.
+**OK is a neutral result.** Taste supports one-decimal grades from 1.0 to 5.0. Other qualitative assessments use representative grades of 1.0, 2.0, 3.0, 4.0, or 5.0; the weighted result can fall between them.
 
 ```text
 Overall grade =
@@ -179,6 +179,78 @@ It returns **2.0 — Good** from six supported component assessments. To inspect
 uv run --locked skills/foodlog/scripts/evaluate.py --schema
 ```
 
+## Coordinator Report — v0.2
+
+FoodLog now produces an analytical Coordinator Report from its validated evaluation.
+It includes the food summary, overall grade, five-dimension SVG donut, parameter
+grades, Time and Energy subgrades, exact weighted calculation, quoted evidence,
+strengths, weaknesses, uncertainty and a factual conclusion.
+
+The donut follows the fixed **30% / 20% / 15% / 20% / 15%** weight distribution.
+Its segments show weights, not achieved scores. The center uses the validated
+overall grade and classification. Incomplete evaluations show **Incomplete
+Evaluation** without a grade; technical failures show **Evaluation Error**.
+Food-safety warnings remain prominent even when a numeric score is favorable.
+
+The Coordinator uses the reporting helper automatically after evaluation. Reports
+are readable in the conversation; a complete text table remains available where
+inline SVG is unsupported. Export is optional and does not create a database or
+personal meal history.
+
+### Generate or regenerate a report
+
+The helper consumes existing evaluation output, not the original assessment draft.
+It also accepts the exported v0.2 JSON to regenerate the same report without
+invoking evaluation skills again:
+
+```text
+uv run --locked skills/foodlog/scripts/report.py reports/FL-V02-PASTA/evaluation.json
+```
+
+By default it returns structured JSON, Markdown and SVG without saving new files.
+For your own normalized evaluation, supply a supported name and optional export:
+
+```text
+uv run --locked skills/foodlog/scripts/report.py evaluation.json --food-name "Homemade Pasta" --report-id FL-MY-MEAL --export-root reports
+```
+
+The export contains:
+
+```text
+reports/FL-MY-MEAL/
+  evaluation.json
+  report.md
+  charts/
+    evaluation.svg
+```
+
+Existing report folders are never overwritten. To save another copy, use a new
+report ID or export root. Without a supplied ID, the helper generates a stable
+hash-based identifier. Optional metadata flags are `--summary`, `--date YYYY-MM-DD`
+and `--type`; unknown meal dates and other details are not invented.
+
+The exported JSON contains report format version **0.2**, metadata, the original
+validated evaluation, and the exact calculation breakdown. The underlying
+evaluation format remains compatible with v0.1. New evaluations additionally
+retain supported numeric price/time measurements. Older saved results still
+render from their existing grades and quoted evidence; the renderer does not
+guess missing numeric amounts.
+
+### Example reports
+
+These are reproducible examples using the acceptance-test inputs, not user meal records.
+
+| Example | Report | Data | Chart |
+|---|---|---|---|
+| Complete homemade pasta: **1.9 — Good**, raw **1.85** | [Markdown](reports/FL-V02-PASTA/report.md) | [JSON](reports/FL-V02-PASTA/evaluation.json) | [SVG](reports/FL-V02-PASTA/charts/evaluation.svg) |
+| Ramen with missing information | [Markdown](reports/FL-V02-RAMEN/report.md) | [JSON](reports/FL-V02-RAMEN/evaluation.json) | [SVG](reports/FL-V02-RAMEN/charts/evaluation.svg) |
+| Spoiled-chicken warning | [Markdown](reports/FL-V02-SAFETY/report.md) | [JSON](reports/FL-V02-SAFETY/evaluation.json) | [SVG](reports/FL-V02-SAFETY/charts/evaluation.svg) |
+
+The rendering layer is under `src/foodlog/reporting/`. It validates saved
+calculations and evidence, then renders without changing grades, calling an LLM,
+or using an external chart API. SVG generation uses Python's standard library.
+Both host installations include the reporting code and its locked helper.
+
 ## Verification and maintenance
 
 ```text
@@ -203,3 +275,11 @@ Scoring, schema validation, failure handling, evidence references, follow-up inp
 Host conventions: [Codex skills](https://developers.openai.com/codex/skills/) and [Claude Code skills](https://code.claude.com/docs/en/skills).
 
 Acceptance examples and execution limits are recorded in [the v0.1 acceptance report](tests/acceptance/REPORT.md). The six scenario inputs and recorded outputs are included for reproducible checks. Live Claude model comparison remains pending.
+
+### Visible charts in Codex
+
+The standard report includes the full analytical layout and a visible donut chart.
+Pass `--preview-dir <authorized temporary visualization directory>` to the report
+helper. It returns Markdown with an absolute PNG image reference and `preview.png`.
+This temporary display image does not create a permanent meal history. Generated
+`reports/` directories are ignored by Git.
